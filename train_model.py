@@ -1,7 +1,7 @@
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.layers import Input, Conv2D
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.preprocessing.image import ImageDataGenerator # type: ignore
+from tensorflow.keras.layers import Input, Conv2D # type: ignore
+from tensorflow.keras.models import Sequential # type: ignore
 import os
 
 # Direktori dataset
@@ -36,11 +36,6 @@ val_generator = train_datagen.flow_from_directory(
 )
 
 # Model CNN
-model = Sequential([
-    Input(shape=(64, 64, 3)),  # Definisikan input di sini
-    Conv2D(32, (3, 3), activation='relu'),
-    # Tambahkan lapisan lainnya...
-])
 model = tf.keras.models.Sequential([
     tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)),
     tf.keras.layers.MaxPooling2D(2, 2),
